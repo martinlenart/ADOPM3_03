@@ -11,7 +11,8 @@ namespace ADOPM3_03_03
             // Consequences that Capatured Variables are evaluated when LE is invoked 
             {
                 Action[] actions = new Action[3];
-
+                
+                
                 for (int i = 0; i < 3; i++)
                     actions[i] = () => Console.Write(i);    // "i" is not yet evaluated
 

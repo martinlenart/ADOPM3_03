@@ -14,13 +14,17 @@ namespace ADOPM3_03_02
             // A lambda expression can reference the local variables and parameters of the method
             // in which it’s defined (outer variables)
             int factor = 2;
-            Func<int, int> multiplier = n => n * factor;
-            Console.WriteLine(multiplier(3));           // 6
+            Func<int, int> multiplier = n => { return n * factor; };
+            Console.WriteLine(multiplier(3));
 
-            // Captured variables are evaluated when the delegate is invoked, not when the variables were captured:
-            factor = 10;
-            Console.WriteLine(multiplier(3));           // 30
+            factor = 3;
+            Func<int, int> multiplier2 = n => { return n * factor; };
 
+            Console.WriteLine(multiplier(3));
+            Console.WriteLine(multiplier2(3));
+
+
+            
             // Lambda expressions can themselves update captured variables:
             int seed = 0;
             Func<int> natural = () => seed++;
@@ -28,15 +32,18 @@ namespace ADOPM3_03_02
             Console.WriteLine(natural());           // 1
             Console.WriteLine(seed);                // 2   
 
+            
             //Lifetime of captured variable is extened to lifetime of the delegate
             Func<int> iterator1 = Iterator1();
             Console.WriteLine(iterator1());           // 0
             Console.WriteLine(iterator1());           // 1
+            
 
             //A local variable instantiated withing LE is unique for the instance
             Func<int> iterator = () => { int seed = 0; return seed++; };
             Console.WriteLine(iterator());      // 0
             Console.WriteLine(iterator());      // 0
+            
         }
     }
 
