@@ -18,10 +18,7 @@ namespace ADOPM3_03_02
             Console.WriteLine(multiplier(3));
 
             factor = 3;
-            Func<int, int> multiplier2 = n => { return n * factor; };
-
             Console.WriteLine(multiplier(3));
-            Console.WriteLine(multiplier2(3));
 
 
             
@@ -38,12 +35,11 @@ namespace ADOPM3_03_02
             Console.WriteLine(iterator1());           // 0
             Console.WriteLine(iterator1());           // 1
             
-
+            
             //A local variable instantiated withing LE is unique for the instance
             Func<int> iterator = () => { int seed = 0; return seed++; };
             Console.WriteLine(iterator());      // 0
             Console.WriteLine(iterator());      // 0
-            
         }
     }
 

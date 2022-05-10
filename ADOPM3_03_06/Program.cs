@@ -26,7 +26,7 @@ namespace ADOPM3_03_06
         static void Main(string[] args)
         {
             Console.WriteLine(new Car() { Make = "Volvo", Year = 2021 }); // Make:Volvo Model: Year:2021 ...a brand new Volvo
-            Console.WriteLine(new Car() { Make = "BMW", Year = 2019 }); // Make:BMW Model: Year:2019 ...a better used BMW
+            Console.WriteLine(new Car() { Make = "BMW", Year = 2019 });   // Make:BMW Model: Year:2019 ...a better used BMW
             Console.WriteLine(new Car() { Make = "Volvo", Year = 2019 }); // Make: Volvo Model: Year: 2019
 
             Car myCar = new Car() { Make = "Jaguar", Year = 1999,
