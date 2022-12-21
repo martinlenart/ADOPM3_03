@@ -25,19 +25,26 @@ namespace ADOPM3_03_02
             
             // Lambda expressions can themselves update captured variables:
             int counter = 0;
-            Func<int> natural = () =>
+            Func<int> natural = () => counter++;  // note the ultra short form
+
+            Console.WriteLine(natural());    // 0
+            Console.WriteLine(natural());    // 1       
+            Console.WriteLine(counter);      // 2
+
+            counter = 0;
+            natural = () => 
             {
                 counter++;
                 counter *= factor;
-
                 return counter;
             };
 
-            Console.WriteLine(natural());           // 0
-            Console.WriteLine(natural());           // 1
-            Console.WriteLine(counter);             // 2   
+            factor = 4;
+            Console.WriteLine(natural());   // 4
+            Console.WriteLine(natural());   // 20
+            Console.WriteLine(counter);     // 20
 
-            
+
             //Lifetime of captured variable is extened to lifetime of the delegate
             Func<int> iterator1 = Iterator1();
             Console.WriteLine(iterator1());           // 0
